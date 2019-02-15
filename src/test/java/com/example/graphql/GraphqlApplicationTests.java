@@ -1,4 +1,4 @@
-package com.example.graphql.graphql;
+package com.example.graphql;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
