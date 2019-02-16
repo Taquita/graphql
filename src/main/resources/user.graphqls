@@ -1,9 +1,11 @@
-type User {
-    id: ID
-    username: String
-    email: String
+type Query {
+    hello: String
+    user: User
+    users: [User]
 }
 
-type Query {
-    users: [User]
+type User {
+    id: ID
+    name: String
+    email: String
 }
