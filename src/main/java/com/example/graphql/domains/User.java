@@ -24,6 +24,7 @@ public class User {
     @NotNull(message = "Attribute 'name' can not be null")
     private String name;
 
+    @NotNull(message = "Attribute 'email' can not be null")
     @Email(message = "Attribute 'email', is not an email")
     private String email;
 
