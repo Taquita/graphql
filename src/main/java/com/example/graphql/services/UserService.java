@@ -3,23 +3,23 @@ package com.example.graphql.services;
 import com.example.graphql.domains.User;
 import com.example.graphql.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
-@Service
-public class UserService {
+import java.util.List;
 
-    private UserRepository userRepository;
+@Service
+public class UserService extends GenericService<User, Long> {
+
+    private UserRepository repository;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserService(UserRepository repository) {
+        super(repository);
+        this.repository = repository;
     }
 
-    public User create(User user) {
-        return this.userRepository.save(user);
-    };
-
-    public User update(User user) {
-        return this.userRepository.save(user);
-    }
 }
