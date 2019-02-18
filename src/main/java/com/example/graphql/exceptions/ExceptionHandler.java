@@ -26,6 +26,10 @@ public abstract class ExceptionHandler extends RuntimeException implements Graph
         return HttpStatus.valueOf(code).name();
     }
 
+    public String getException() {
+        return this.getClass().getSimpleName();
+    }
+
     @Override
     @JsonIgnore
     public Throwable getCause() {
