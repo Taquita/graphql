@@ -9,13 +9,13 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
 
 @Entity
 @Table(name = "[user]")
-public class User {
+public class User extends GenericDomains<User> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
