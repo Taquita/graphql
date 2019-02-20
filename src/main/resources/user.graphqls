@@ -5,6 +5,8 @@ type Query {
 
 type Mutation {
     createUser(user: CreateUser): User
+    updateUser(user: UpdateUser): User
+    removeUser(id: ID): Boolean
 }
 
 type User {
@@ -14,6 +16,12 @@ type User {
 }
 
 input CreateUser {
+    name: String
+    email: String
+}
+
+input UpdateUser {
+    id: ID
     name: String
     email: String
 }

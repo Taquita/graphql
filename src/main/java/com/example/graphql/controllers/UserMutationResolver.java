@@ -19,4 +19,12 @@ public class UserMutationResolver implements GraphQLMutationResolver {
     public User createUser(User user) {
         return this.userService.create(user);
     }
+
+    public User updateUser(User user) {
+        return this.userService.update(user);
+    }
+
+    public void removeUser(Long id) {
+        this.userService.remove(id);
+    }
 }
