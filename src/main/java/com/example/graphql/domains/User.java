@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "[user]")
-public class User extends GenericDomains<User> {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

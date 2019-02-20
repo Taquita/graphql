@@ -1,13 +1,11 @@
 package com.example.graphql.services;
 
-import com.example.graphql.exceptions.EntityNotFoundException;
-import com.example.graphql.exceptions.GenericGraphQLException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import javax.validation.Validation;
+import javax.persistence.EntityNotFoundException;
 import java.io.Serializable;
 import java.util.List;
 
@@ -20,12 +18,7 @@ public abstract class GenericService<T, ID extends Serializable> {
     }
 
     public T create(T entity) {
-        try {
-            return this.repository.save(entity);
-        }catch(Exception ex){
-            while(ex.getCause() !=null) ex = new Exception(ex.getCause());
-            throw new GenericGraphQLException(ex.getMessage(),500);
-        }
+        return this.repository.save(entity);
     };
 
     public T update(T entity) {
@@ -38,7 +31,7 @@ public abstract class GenericService<T, ID extends Serializable> {
 
     public T getById(ID id) {
         return this.repository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Entity not found", 400));
+                .orElseThrow(() -> new EntityNotFoundException("Entity not found"));
     }
 
     public List<T> list() {

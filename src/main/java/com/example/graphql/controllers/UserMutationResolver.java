@@ -1,7 +1,6 @@
 package com.example.graphql.controllers;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
-import com.example.graphql.annotations.IsValid;
 import com.example.graphql.domains.User;
 import com.example.graphql.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,7 @@ public class UserMutationResolver implements GraphQLMutationResolver {
         this.userService = userService;
     }
 
-    public User createUser(@IsValid User user) {
+    public User createUser(User user) {
         return this.userService.create(user);
     }
 }
