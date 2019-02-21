@@ -11,7 +11,7 @@ import java.util.List;
 
 public abstract class GenericService<T, ID extends Serializable> {
 
-    private JpaRepository<T, ID> repository;
+    private final JpaRepository<T, ID> repository;
 
     public GenericService(JpaRepository<T, ID> repository) {
         this.repository = repository;

@@ -11,7 +11,7 @@ import java.util.List;
 @Component
 public class UserQueryResolver implements GraphQLQueryResolver {
 
-    private UserService userService;
+    private final UserService userService;
 
     @Autowired
     public UserQueryResolver(UserService userService) {

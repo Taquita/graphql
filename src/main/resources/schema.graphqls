@@ -1,0 +1,59 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Query {
+    user(id: ID): User
+    users: [User]
+}
+
+type Mutation {
+    createUser(user: CreateUser): User
+    updateUser(user: UpdateUser): User
+    removeUser(id: ID): Boolean
+    createAddress(address: CreateAddress): Address
+    updateAddress(address: UpdateAddress): Address
+    removeAddress(id: ID): Boolean
+}
+
+
+#Types
+type User {
+    id: ID
+    name: String
+    email: String
+    addresses: [Address]
+}
+
+type Address {
+    id: ID
+    street: String
+    number: Int
+    user: User
+}
+
+#Inputs
+input CreateUser {
+    name: String
+    email: String
+    addresses: [CreateAddress]
+}
+
+input UpdateUser {
+    id: ID
+    name: String
+    email: String
+}
+
+input CreateAddress {
+    street: String
+    number: Int
+    user: CreateUser
+}
+
+input UpdateAddress {
+    id: ID
+    street: String
+    number: Int
+}
