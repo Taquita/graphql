@@ -25,7 +25,7 @@ public class Address {
 
     private Integer number;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne()
     @JoinColumn(name = "user_id", nullable = false)
     @JsonBackReference
     private User user;

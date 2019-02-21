@@ -6,6 +6,8 @@ schema {
 type Query {
     user(id: ID): User
     users: [User]
+    address(id: ID): Address
+    addresses: [Address]
 }
 
 type Mutation {
